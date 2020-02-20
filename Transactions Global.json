@@ -12,7 +12,7 @@
 		"id": 1,
 		"cells": [
 			{
-				"i": "fd5ce5ed-d9c0-445e-af7f-7c3a92ef45d2",
+				"i": "fb105ac4-df0d-4f0d-b675-d63ce57f1205",
 				"x": 0,
 				"y": 8,
 				"w": 4,
@@ -139,11 +139,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/1/cells/fd5ce5ed-d9c0-445e-af7f-7c3a92ef45d2"
+					"self": "/chronograf/v1/dashboards/1/cells/fb105ac4-df0d-4f0d-b675-d63ce57f1205"
 				}
 			},
 			{
-				"i": "27e25b8f-b285-4ec5-aa48-fa785200a00f",
+				"i": "dbba28f7-9645-464e-aca6-16b53605ee9a",
 				"x": 8,
 				"y": 4,
 				"w": 4,
@@ -256,11 +256,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/1/cells/27e25b8f-b285-4ec5-aa48-fa785200a00f"
+					"self": "/chronograf/v1/dashboards/1/cells/dbba28f7-9645-464e-aca6-16b53605ee9a"
 				}
 			},
 			{
-				"i": "cb25d1fe-f1cb-4881-9edf-b5dfe335a3a2",
+				"i": "ee4e3a1d-8b69-46c0-bd50-b021afd59b6d",
 				"x": 4,
 				"y": 4,
 				"w": 4,
@@ -387,11 +387,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/1/cells/cb25d1fe-f1cb-4881-9edf-b5dfe335a3a2"
+					"self": "/chronograf/v1/dashboards/1/cells/ee4e3a1d-8b69-46c0-bd50-b021afd59b6d"
 				}
 			},
 			{
-				"i": "d6e0339c-ca76-4fa4-b7fb-e762eb43fba7",
+				"i": "1e8f4e7b-2bcc-4006-9779-2bb28c928b3b",
 				"x": 8,
 				"y": 0,
 				"w": 4,
@@ -399,7 +399,7 @@
 				"name": "PROC.INVOCATIONS",
 				"queries": [
 					{
-						"query": "SELECT sum(\"INVOCATIONS\")/(:divide_by_interval:) AS \"mean_INVOCATIONS\" FROM \"telegraf\".\"autogen\".\"PROCEDURE\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"SITE_ID\"!='8' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT sum(\"INVOCATIONS\")/(:divide_by_interval:) AS \"INVOCATIONS\" FROM \"telegraf\".\"autogen\".\"PROCEDURE\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"SITE_ID\"!=:ignore_MP_site: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -411,7 +411,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT sum(\"INVOCATIONS\")/(:divide_by_interval:) AS \"mean_INVOCATIONS\" FROM \"telegraf\".\"autogen\".\"PROCEDURE\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"SITE_ID\"!='8' GROUP BY time(:interval:) FILL(null)",
+							"rawText": "SELECT sum(\"INVOCATIONS\")/(:divide_by_interval:) AS \"INVOCATIONS\" FROM \"telegraf\".\"autogen\".\"PROCEDURE\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"SITE_ID\"!=:ignore_MP_site: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -504,11 +504,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/1/cells/d6e0339c-ca76-4fa4-b7fb-e762eb43fba7"
+					"self": "/chronograf/v1/dashboards/1/cells/1e8f4e7b-2bcc-4006-9779-2bb28c928b3b"
 				}
 			},
 			{
-				"i": "626f46a8-2411-42b3-b371-4ae5f1ddd9a1",
+				"i": "fd4fb34d-685e-4939-9e8c-9ec15136526b",
 				"x": 4,
 				"y": 0,
 				"w": 4,
@@ -523,17 +523,25 @@
 							"retentionPolicy": "autogen",
 							"fields": [
 								{
-									"value": "TPS",
-									"type": "field",
-									"alias": ""
+									"value": "sum",
+									"type": "func",
+									"alias": "",
+									"args": [
+										{
+											"value": "TPS",
+											"type": "field",
+											"alias": ""
+										}
+									]
 								}
 							],
 							"tags": {},
 							"groupBy": {
-								"time": "",
+								"time": "auto",
 								"tags": []
 							},
 							"areTagsAccepted": false,
+							"fill": "null",
 							"rawText": null,
 							"range": null,
 							"shifts": null
@@ -627,11 +635,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/1/cells/626f46a8-2411-42b3-b371-4ae5f1ddd9a1"
+					"self": "/chronograf/v1/dashboards/1/cells/fd4fb34d-685e-4939-9e8c-9ec15136526b"
 				}
 			},
 			{
-				"i": "cf2cfe57-5538-47ea-ae5a-fa5a16f4e4f6",
+				"i": "f18544df-faae-4b31-9aa7-b653c560190c",
 				"x": 0,
 				"y": 0,
 				"w": 4,
@@ -744,11 +752,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/1/cells/cf2cfe57-5538-47ea-ae5a-fa5a16f4e4f6"
+					"self": "/chronograf/v1/dashboards/1/cells/f18544df-faae-4b31-9aa7-b653c560190c"
 				}
 			},
 			{
-				"i": "34a9b29e-08fb-4d97-b809-d222cdbf9710",
+				"i": "5ef1969b-0b28-446b-a7e3-8a0ddcc92ff4",
 				"x": 0,
 				"y": 4,
 				"w": 4,
@@ -756,33 +764,19 @@
 				"name": "LIVE_CLIENTS.OUT_TPS",
 				"queries": [
 					{
-						"query": "SELECT mean(\"OUTSTANDING_TRANSACTIONS\") AS \"mean_OUTSTANDING_TRANSACTIONS\" FROM \"telegraf\".\"autogen\".\"LIVE_CLIENTS\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT SUM(\"OUTSTANDING_TRANSACTIONS\")/(:divide_by_interval:) AS \"mean_OUTSTANDING_TRANSACTIONS\" FROM \"telegraf\".\"autogen\".\"LIVE_CLIENTS\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
-							"database": "telegraf",
-							"measurement": "LIVE_CLIENTS",
-							"retentionPolicy": "autogen",
-							"fields": [
-								{
-									"value": "mean",
-									"type": "func",
-									"alias": "mean_OUTSTANDING_TRANSACTIONS",
-									"args": [
-										{
-											"value": "OUTSTANDING_TRANSACTIONS",
-											"type": "field",
-											"alias": ""
-										}
-									]
-								}
-							],
+							"database": "",
+							"measurement": "",
+							"retentionPolicy": "",
+							"fields": [],
 							"tags": {},
 							"groupBy": {
-								"time": "auto",
+								"time": "",
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"fill": "null",
-							"rawText": null,
+							"rawText": "SELECT SUM(\"OUTSTANDING_TRANSACTIONS\")/(:divide_by_interval:) AS \"mean_OUTSTANDING_TRANSACTIONS\" FROM \"telegraf\".\"autogen\".\"LIVE_CLIENTS\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
 							"range": null,
 							"shifts": null
 						},
@@ -875,11 +869,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/1/cells/34a9b29e-08fb-4d97-b809-d222cdbf9710"
+					"self": "/chronograf/v1/dashboards/1/cells/5ef1969b-0b28-446b-a7e3-8a0ddcc92ff4"
 				}
 			},
 			{
-				"i": "3f355328-6b54-4b6f-978f-d2eb651aa680",
+				"i": "3e4c40e8-d328-477a-8642-003b5754209e",
 				"x": 4,
 				"y": 8,
 				"w": 4,
@@ -992,11 +986,11 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/1/cells/3f355328-6b54-4b6f-978f-d2eb651aa680"
+					"self": "/chronograf/v1/dashboards/1/cells/3e4c40e8-d328-477a-8642-003b5754209e"
 				}
 			},
 			{
-				"i": "bfe1fffa-905d-4d72-b84e-7ec866a95f45",
+				"i": "ebf1a951-80dc-45ca-b9f1-c20b7d715578",
 				"x": 8,
 				"y": 8,
 				"w": 4,
@@ -1109,7 +1103,7 @@
 				"note": "",
 				"noteVisibility": "default",
 				"links": {
-					"self": "/chronograf/v1/dashboards/1/cells/bfe1fffa-905d-4d72-b84e-7ec866a95f45"
+					"self": "/chronograf/v1/dashboards/1/cells/ebf1a951-80dc-45ca-b9f1-c20b7d715578"
 				}
 			}
 		],
