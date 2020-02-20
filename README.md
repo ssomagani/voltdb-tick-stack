@@ -42,7 +42,7 @@ The purpose of this project is to provide the capabilities of monitoring that ar
 
 ## Using and creating Dashboards
 
-Some dashboards are provided as guides
+Some dashboards are provided here as guides and starting points to build dashboards to solve your specific needs. 
 
 ### Transactions Global
 
@@ -55,7 +55,8 @@ The template variables are used by the queries behind the graphs on this dashboa
 This dashboard shows the graphs specific to a procedure.
 
 **Template Variables**
-Set the `proc_name` and `proc_proc_name` variables (the name of the procedure is fully qualified in @Statistics PROCEDURE results) to filter to the procedure name.
+* `proc_name` to filter to the procedure name.
+* `proc_proc_name` also to filter to the procedure name (the name of the procedure is fully qualified in @Statistics PROCEDURE results and hence the need for an extra variable)
 * `divide_by_interval` - The time interval in seconds to divide the SUM(some_metric) by to get the metrics per second. It is usually set to 5s, but update this variable when changing the dashboard graphing interval.
 * `ignore_MP_site` - The MP site (on a single node) is a special site that shouldn't be clumped together with the others when gathering metrics, so this template variable can be set to the site_id of the MP (it's usually the highest number of SITE_ID, but you can verify that by comparing the ideltime between different sites). In the case of a multi-node cluster, update the query behind the graphs to ensure that the MP sites from all the nodes are excluded from the aggregations.
 
