@@ -1,0 +1,122 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.17",
+		"sources": {
+			"0": {
+				"name": "http://influxdb:8086",
+				"link": "/chronograf/v1/sources/0"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 3,
+		"cells": [
+			{
+				"i": "9c687198-2f22-46ca-afa6-5b10ff68386b",
+				"x": 0,
+				"y": 0,
+				"w": 4,
+				"h": 4,
+				"name": "Untitled Graph",
+				"queries": [],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line",
+				"colors": [],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/3/cells/9c687198-2f22-46ca-afa6-5b10ff68386b"
+				}
+			}
+		],
+		"templates": [
+			{
+				"tempVar": ":site_id:",
+				"values": [
+					{
+						"value": "1",
+						"type": "tagValue",
+						"selected": true
+					}
+				],
+				"id": "04fa51c6-968b-4a29-9307-466747421c20",
+				"type": "tagValues",
+				"label": "",
+				"query": {
+					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
+					"db": "telegraf",
+					"measurement": "PROCEDURE",
+					"tagKey": "SITE_ID",
+					"fieldKey": ""
+				},
+				"links": {
+					"self": "/chronograf/v1/dashboards/3/templates/04fa51c6-968b-4a29-9307-466747421c20"
+				}
+			}
+		],
+		"name": "Transactions By Site",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/3",
+			"cells": "/chronograf/v1/dashboards/3/cells",
+			"templates": "/chronograf/v1/dashboards/3/templates"
+		}
+	}
+}

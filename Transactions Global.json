@@ -1161,7 +1161,7 @@
 				}
 			}
 		],
-		"name": "Transactions",
+		"name": "Transactions Global",
 		"organization": "default",
 		"links": {
 			"self": "/chronograf/v1/dashboards/1",
