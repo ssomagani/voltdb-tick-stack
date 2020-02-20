@@ -14,14 +14,14 @@
 1. Configure - [telegraf.conf](telegraf.conf) to update the connStrings variable to connect to your VoltDB instance.
 2. Run       - `docker compose docker-compose.tick.yml up` to start up the TICK stack containers.
 3. Open      - http://localhost:8888/ to launch Chronograf
-4. Customize - any of the included dashboards (.json files) from the Chronograf UI (http://localhost:8888/sources/0/dashboards -> Import Dashboard). Refer to [Using and Creating Dashboards] for more details.
+4. Customize - any of the included dashboards (.json files) from the Chronograf UI (http://localhost:8888/sources/0/dashboards -> Import Dashboard). Refer to [Using and Creating Dashboards](README.md/#Using and creating Dashboards) for more details.
 
 **Create a new VoltDB cluster**
 
-1. Configure - `telegraf.conf` to update the connStrings variable to connect to your VoltDB instance.
+1. Configure - [telegraf.conf](telegraf.conf) to update the connStrings variable to connect to your VoltDB instance.
 2. Run       - `docker compose docker-compose.all.yml up` to start up the TICK stack, a 3-node VoltDB cluster and a VoltDB client running the voter example.
-3. Open      - [http://localhost:8888/] to launch Chronograf
-4. Customize - any of the included dashboards (.json files) from the Chronograf UI (http://localhost:8888/sources/0/dashboards -> Import Dashboard). Refer to [Using and Creating Dashboards] for more details.
+3. Open      - http://localhost:8888/ to launch Chronograf
+4. Customize - any of the included dashboards (.json files) from the Chronograf UI http://localhost:8888/sources/0/dashboards -> Import Dashboard. Refer to [Using and Creating Dashboards] for more details.
  
 ## Purpose
 
