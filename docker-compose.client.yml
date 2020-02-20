@@ -3,6 +3,6 @@ version: '3'
 services:
 
   voltdb-client:
-    image: volt-client
+    image: seetasomagani/voltdb-voter-standalone-client:v0.1
     environment:
       - HOSTS=host.docker.internal
