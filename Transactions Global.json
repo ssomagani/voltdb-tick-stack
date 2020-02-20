@@ -516,7 +516,7 @@
 				"name": "LATENCY.TPS",
 				"queries": [
 					{
-						"query": "SELECT \"TPS\" FROM \"telegraf\".\"autogen\".\"LATENCY\" WHERE time > :dashboardTime: AND time < :upperDashboardTime:",
+						"query": "SELECT SUM(\"TPS\") FROM \"telegraf\".\"autogen\".\"LATENCY\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "LATENCY",
