@@ -7,7 +7,6 @@ services:
         - "9273:9273"
     volumes:
         - ./telegraf.conf:/telegraf.conf
-#        - ./dev/json_a.log:/var/log/test.log
     entrypoint:
         - /telegraf
         - --config

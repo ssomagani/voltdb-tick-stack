@@ -41,13 +41,11 @@ services:
 
 #################################### 
   telegraf:
-    image: glinton/scratch
+    image: seetasomagani/telegraf
     ports:
         - "9273:9273"
     volumes:
         - ./telegraf.conf:/telegraf.conf
-        - ../../../../telegraf:/telegraf
-        - ./dev/json_a.log:/var/log/test.log
     entrypoint:
         - /telegraf
         - --config
