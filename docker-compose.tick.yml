@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  telegraf:
+    image: seetasomagani/telegraf
+    ports:
+        - "9273:9273"
+    volumes:
+        - ./telegraf.conf:/telegraf.conf
+#        - ./dev/json_a.log:/var/log/test.log
+    entrypoint:
+        - /telegraf
+        - --config
+        - /telegraf.conf
+    depends_on: ['influxdb']
+  
+  influxdb:
+    image: influxdb:latest
+    ports:
+      - "8086:8086"
+      - "9999:9999"
+      
+  chronograf:
+    image: quay.io/influxdb/chronograf
+    ports:
+        - "8888:8888"
+    entrypoint: 'chronograf --influxdb-url=http://influxdb:8086'
+    depends_on: ['influxdb']

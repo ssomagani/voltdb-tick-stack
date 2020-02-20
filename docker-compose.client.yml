@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+
+  voltdb-client:
+    image: volt-client
+    environment:
+      - HOSTS=host.docker.internal

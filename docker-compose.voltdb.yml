@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  voltdb-1:
+    image: voltdb-ent:latest
+    ports:
+        - "37080:8080"
+        - "21212:21212"
+    environment:
+      - HOSTS="voltdb-1,voltdb-2,voltdb-3"
+    entrypoint:
+        "./docker-entrypoint.sh"
+        
+  voltdb-2:
+    image: voltdb-ent:latest
+    ports:
+        - "38080:8080"
+        - "31212:21212"
+    environment:
+      - HOSTS="voltdb-1,voltdb-2,voltdb-3"
+    entrypoint:
+        "./docker-entrypoint.sh"
+        
+  voltdb-3:
+    image: voltdb-ent:latest
+    ports:
+        - "39080:8080"
+        - "32212:21212"
+    environment:
+      - HOSTS="voltdb-1,voltdb-2,voltdb-3"
+    entrypoint:
+        "./docker-entrypoint.sh"

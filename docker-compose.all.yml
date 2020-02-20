@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+  voltdb-1:
+    image: voltdb-ent:latest
+    ports:
+        - "37080:8080"
+        - "21212:21212"
+    environment:
+      - HOSTS="voltdb-1,voltdb-2,voltdb-3"
+    entrypoint:
+        "./docker-entrypoint.sh"
+        
+  voltdb-2:
+    image: voltdb-ent:latest
+    ports:
+        - "38080:8080"
+        - "31212:21212"
+    environment:
+      - HOSTS="voltdb-1,voltdb-2,voltdb-3"
+    entrypoint:
+        "./docker-entrypoint.sh"
+        
+  voltdb-3:
+    image: voltdb-ent:latest
+    ports:
+        - "39080:8080"
+        - "32212:21212"
+    environment:
+      - HOSTS="voltdb-1,voltdb-2,voltdb-3"
+    entrypoint:
+        "./docker-entrypoint.sh"
+        
+####################################     
+
+  voltdb-client:
+    image: volt-client
+    environment:
+      - HOSTS=voltdb-2
+    depends_on: ['voltdb-1']
+
+#################################### 
+  telegraf:
+    image: glinton/scratch
+    ports:
+        - "9273:9273"
+    volumes:
+        - ./telegraf.conf:/telegraf.conf
+        - ../../../../telegraf:/telegraf
+        - ./dev/json_a.log:/var/log/test.log
+    entrypoint:
+        - /telegraf
+        - --config
+        - /telegraf.conf
+    depends_on: ['influxdb','voltdb-3']
+  
+  influxdb:
+    image: influxdb:latest
+    ports:
+      - "8086:8086"
+      - "9999:9999"
+      
+  chronograf:
+    image: quay.io/influxdb/chronograf
+    ports:
+        - "8888:8888"
+    entrypoint: 'chronograf --influxdb-url=http://influxdb:8086'
+    depends_on: ['influxdb']
