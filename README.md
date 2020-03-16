@@ -1,4 +1,4 @@
-# voltdb-tickstack
+# voltdb-tick-stack
 This project aims to help users monitor and analyze their VoltDB clusters using the TICK (Telegraf, InfluxDB, Chronograf, Kapacitor) stack from Influx Data. Other tools to monitor VoltDB such as New Relic, and Prometheus (coming soon) are also available for use, in addition to VoltDB's own Enterprise Management Console.
 
 This project requires Docker to run.
